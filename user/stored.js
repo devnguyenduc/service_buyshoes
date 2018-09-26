@@ -1,6 +1,6 @@
 var tech = ".json"
 var file = require("fs")
-var urldb = `mongodb://vanhuanak808:Khongaibiet808@ds245532.mlab.com:45532/huan_shoes`
+var urldb = `mongodb://:@ds245532.mlab.com:45532/`
 // class User{
 //     constructor(){
 //         this.id = ""
@@ -55,7 +55,7 @@ var urldb = `mongodb://vanhuanak808:Khongaibiet808@ds245532.mlab.com:45532/huan_
 //     // }
 // }
 
-var urldb = `mongodb://vanhuanak808:Khongaibiet808@ds245532.mlab.com:45532/huan_shoes`;
+var urldb = `mongodb://:@ds245532.mlab.com:45532/`;
 class stored {
     constructor() {
         this.url = urldb;
@@ -71,9 +71,9 @@ class stored {
             if (err) {
                 result = err;
             } else {
-                var name_db = "huan_shoes";
+                var name_db = "";
                 var db = client.db(name_db);
-                var shoes = db.collection("shoes");
+                var shoes = db.collection("");
                 shoes.find({}).toArray((err, danh_sach_giay) => {
                     if (err) {
                         result = err;
@@ -93,9 +93,9 @@ class stored {
             if (err) {
                 result = err;
             } else {
-                var name_db = "huan_shoes";
+                var name_db = "";
                 var db = client.db(name_db);
-                var shoes = db.collection("shoes");
+                var shoes = db.collection("");
                 var luot_mua = {
                     "buy": -1
                 }
@@ -118,9 +118,9 @@ class stored {
             if(err){
                 console.log(err);
             }else{
-                var name_db = "huan_shoes";
+                var name_db = "";
                 var db = client.db(name_db);
-                var shoes = db.collection("shoes");
+                var shoes = db.collection("");
                 shoes.find(dieu_kien).toArray((err,danh_sach_giay)=>{
                     if(err){
                         console.log(err);
