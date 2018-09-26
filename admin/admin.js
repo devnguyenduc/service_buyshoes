@@ -1,7 +1,7 @@
 
-var admin_id = "vanhuanak808";
-var admin_password = "Khongaibiet808" // khongaibiet808 cho user_ex
-var admin_product = "huan_shoes"
+var admin_id = "";
+var admin_password = "" //
+var admin_product = ""
 var url = `mongodb://${admin_id}:${admin_password}@ds245532.mlab.com:45532/${admin_product}`
 class admin {
     constructor() {
@@ -17,7 +17,7 @@ class admin {
     // Kiểm tra quyền admin
     isAdmin(id, password) {
         var result = ""
-        this.url = `mongodb://${id}:${password}@ds245532.mlab.com:45532/huan_shoes`;
+        this.url = `mongodb://${id}:${password}@ds245532.mlab.com:45532/${admin_product}`;
         this.mongo_client.connect(this.url, (err, client) => {
             if (err) {
                 result = "Chúc mừng bạn kết nối thành công";
@@ -36,7 +36,7 @@ class admin {
 
     // cài đặt đường dẫn tới cơ sở dữ liệu
     set_url() {
-        this.url = `mongodb://${this.admin_id}:${this.admin_password}@ds245532.mlab.com:45532/huan_shoes`;
+        this.url = `mongodb://${this.admin_id}:${this.admin_password}@ds245532.mlab.com:45532/${admin_product}`;
     }
     get_url(){
         if(this.is_admin){
@@ -54,9 +54,9 @@ class admin {
                 if (err) {
                     result = err;
                 } else {
-                    var name_db = "huan_shoes";
+                    var name_db = admin_product;
                     var db = client.db(name_db);
-                    var shoes = db.collection("shoes");
+                    var shoes = db.collection(product);
                     shoes.find({}).toArray((err, danh_sach_giay) => {
                         if (err) {
                             result = err;
@@ -82,9 +82,9 @@ class admin {
                 if (err) {
                     result = err;
                 } else {
-                    var name_db = "huan_shoes";
+                    var name_db = admin_product;
                     var db = client.db(name_db);
-                    var shoes = db.collection("shoes");
+                    var shoes = db.collection(product);
                     var dieu_kien = {
                         $and: danh_sach_dieu_kien
                     };
@@ -117,9 +117,9 @@ class admin {
         var result = ""
         if (this.is_admin) {
             this.mongo_client.connect(this.get_url());
-            var name_db = "huan_shoes";
+            var name_db = admin_product;
             var db = client.db(name_db);
-            var shoes = db.collection("shoes");
+            var shoes = db.collection(product);
             shoes.insert(san_pham, (err, result) => {
                 if (err) {
                     result = error;
@@ -138,9 +138,9 @@ class admin {
         var result = ""
         if (this.is_admin) {
             this.mongo_client.connect(this.get_url());
-            var name_db = "huan_shoes";
+            var name_db = admin_product;
             var db = client.db(name_db);
-            var shoes = db.collection("shoes");
+            var shoes = db.collection(product);
             shoes.remove(dieu_kien, (err, kq) => {
                 if (err) {
                     result = err;
@@ -158,9 +158,9 @@ class admin {
         var result = ""
         if(this.is_admin){
             this.mongo_client.connect(this.get_url());
-            var name_db = "huan_shoes";
+            var name_db = admin_product;
             var db = client.db(name_db);
-            var shoes = db.collection("shoes");
+            var shoes = db.collection(product);
             shoes.update(san_pham_cap_nhat,(err,success)=>{
                 if(err){
                     result = err
