@@ -1,4 +1,4 @@
-var urldb = `mongodb://user_experience:khongaibiet808@ds245532.mlab.com:45532/user_ex`
+var urldb = `mongodb://:@ds245532.mlab.com:45532/`
 
 class user_infomation { // Xuất danh sách người dùng
     constructor() {
@@ -97,9 +97,9 @@ class user_infomation { // Xuất danh sách người dùng
     // Cập nhật danh sách đơn hàng
     update(result){
         this.open()
-        var name_db = "user_ux";
+        var name_db = "";
         var db = client.db(name_db);
-        var user_info = db.collection("login");
+        var user_info = db.collection("");
         user_info.update(result,(err,kq)=>{
             if(err){
                 return err;
@@ -112,9 +112,9 @@ class user_infomation { // Xuất danh sách người dùng
     //Tạo tài khoản người dùng
     insert(new_account){
         this.open();
-        var name_db = "user_ux";
+        var name_db = "";
         var db = client.db(name_db);
-        var user_info = db.collection("login");
+        var user_info = db.collection("");
         user_info.insert(new_account,(err,success)=>{
             if(success){
                 return "Tạo tài khoản thành công.";
@@ -126,9 +126,9 @@ class user_infomation { // Xuất danh sách người dùng
     // Cập nhật đơn hàng và cập nhật sản phẩm đã xem
     update_product(update_product){
         this.open()
-        var name_db = "user_ux";
+        var name_db = "";
         var db = client.db(name_db);
-        var user_info = db.collection("login");
+        var user_info = db.collection("");
         user_info.update(update_product,(err,success)=>{
             if(err){
                 return err;
