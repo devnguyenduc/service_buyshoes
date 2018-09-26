@@ -18,8 +18,8 @@ var server = http.createServer((req,res)=>{
     req.on('end',()=>{
         if(Ma_so_Xu_ly == "admin_login"){
             hello = {
-                "id" : "vanhuanak808",
-                "pass" : "Khongaibiet808"
+                "id" : "",
+                "pass" : ""
             }
             console.log(hello)
             var valid = JSON.parse(hello)
