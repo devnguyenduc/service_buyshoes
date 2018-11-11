@@ -171,6 +171,7 @@ class admin {
         }
         return result
     }
+    them_danh_sach(){}
     doc_danh_sach_tai_khoan_nguoi_dung(){
 
     }
